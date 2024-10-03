@@ -1,0 +1,71 @@
+﻿@model IEnumerable<BanSach.Models.DanhMuc>
+
+@{
+    ViewBag.Title = "Quản lý danh mục";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .tieude {
+        background-color: darkcyan;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        margin: 10px 10px 20px 10px;
+        padding: 5px;
+    }
+
+    .them a {
+        border-radius: 10px;
+        background-color: darkcyan;
+        color: white;
+        font-size: large;
+        padding: 5px;
+        margin: 50px 10px 0 10px;
+    }
+
+        .them a:hover {
+            text-decoration: none;
+            color: white;
+            background-color: #027171;
+        }
+
+    .table-striped {
+        width: 100%;
+    }
+</style>
+
+<h2 class="tieude">Danh mục sách</h2>
+
+<p class="them">
+    @Html.ActionLink("Thêm", "Create")
+</p>
+<table class="table table-striped">
+    <tr style="background-color: steelblue; color: lightcyan; text-align: left;">
+        <th style="border-top-left-radius: 25px;">
+            Thể loại
+        </th>
+        <th>
+            Danh mục
+        </th>
+        <th style="border-top-right-radius: 25px;"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TheLoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DanhMuc1)
+            </td>
+
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Xem", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Xoá", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+</table>

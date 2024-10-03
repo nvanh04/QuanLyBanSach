@@ -1,0 +1,73 @@
+﻿@model IEnumerable<BanSach.Models.SanPham>
+
+@{
+    ViewBag.Title = "Kho sách";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .tieude {
+        background-color: darkcyan;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        margin:10px 10px 20px 10px;
+        padding:5px;
+    }
+
+    .them a {
+        border-radius: 10px;
+        background-color: darkcyan;
+        color: white;
+        font-size: large;
+        padding: 5px;
+        margin: 50px 10px 0 10px;
+    }
+
+        .them a:hover {
+            text-decoration: none;
+            color: white;
+            background-color:#027171;
+        }
+        .table-striped{
+        width:100%;
+        }
+</style>
+
+<h2 class="tieude">Kho Sách</h2>
+
+<p class="them">
+    @Html.ActionLink("Thêm sách", "Create")
+   
+</p>
+
+<table class="table table-striped">
+    <tr style="background-color: steelblue; color: lightcyan; text-align: left;">
+        <th style="border-top-left-radius: 25px;width:20%"> Tên Sách </th>       
+        <th>Thể loại</th>
+        <th> Giá</th>
+        <th> Số lượng</th>
+        <th>Hình</th>
+        <th style="width:15%;">Tác giả</th>
+        <th>Nhà XB</th>
+        <th style="border-top-right-radius: 25px;"></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td > @Html.DisplayFor(modelItem => item.TenSP)</td>
+            <td> @Html.DisplayFor(modelItem => item.DanhMuc.TheLoai)</td>
+            <td > @Html.DisplayFor(modelItem => item.GiaBan)0</td>
+            <td>@Html.DisplayFor(modelItem => item.SoLuong)</td>
+            <td><img src="~/Content/img/@item.HinhAnh" width="60" /></td>
+            <td> @Html.DisplayFor(modelItem => item.TacGia)</td>
+            <td> @Html.DisplayFor(modelItem => item.NhaXB) </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.IDsp }) |
+                @Html.ActionLink("Xem", "Details", new { id = item.IDsp }) |
+                @Html.ActionLink("Xoá", "Delete", new { id = item.IDsp })
+            </td>
+        </tr>
+    }
+</table>

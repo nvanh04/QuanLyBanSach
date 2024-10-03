@@ -1,0 +1,90 @@
+﻿@using PagedList.Mvc;
+
+@model PagedList.IPagedList<BanSach.Models.SanPham>
+@{
+    ViewBag.Title = "Sách";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    .card-pro {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 5px;
+        text-align: center;
+        margin-top:20px;
+    }
+
+        .card-pro:hover {
+            -moz-box-shadow: 0 4px 8px 0 grey;
+            -webkit-box-shadow: 0 4px 8px 0 grey;
+            text-decoration:none;
+        }
+        .card-pro a:hover {
+
+            text-decoration: none;
+        }
+
+    .sotrang {
+        text-align: center;
+        margin: 15px 0 5px 0;
+    }
+
+        .sotrang a {
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+            .sotrang a:hover {
+                text-decoration: none;
+                background-color: blanchedalmond;
+            }
+    .dieuhuongtrang {
+        width: fit-content;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top:30px;
+    }
+    .dieuhuongtrang li a {
+        color: black;
+        padding: 10px;
+        margin: 2px;
+    }
+    .dieuhuongtrang .active a, .dieuhuongtrang .active a:hover {
+        background-color: #C92127;
+        color: white;
+        border-radius: 10px;
+        text-decoration:none;
+    }
+    .dieuhuongtrang li a:hover {
+        background-color: lemonchiffon;
+        border-radius: 10px;
+        border: none;
+        text-decoration: none;
+    }
+ 
+</style>
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card-pro">
+                    <a href="~/SanPhams/TrangSP/@item.IDsp">
+                        <img src="~/Content/img/@item.HinhAnh" width="200" height="250" />
+                        <p style="height:40px; text-align:left;margin:5px 5px 10px 5px;">@Html.DisplayFor(model => item.TenSP)</p>
+                        <br />
+                        <p><font color="red">@Html.DisplayFor(model => item.GiaBan)0 đ</font></p>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="dieuhuongtrang">
+        @Html.PagedListPager(Model, page => Url.Action("ProductList", new { page }))
+    </div>
+</div>
+

@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Bán Sách Giả";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .carousel-inner, .carousel-inner a, .col-lg-3 .d-flex,#prv,#nxt {
+        border-radius: 8px;
+    }
+    
+</style>
+<div id="header-carousel" class="carousel slide " data-ride="carousel">
+    <div class="carousel-inner">
+        <!-- Poster 1 start -->
+        <div class="carousel-item active" style="height: 480px;">
+            <img class="img-fluid" src="~/Content/img/1.jpg" alt="Image">
+            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                <div class="p-3" style="max-width: 700px;">
+                    <h4 class="text-light text-uppercase font-weight-medium mb-3">Giảm 10% cho đơn hàng đầu tiên</h4>
+                    <h3 class="display-4 text-white font-weight-semi-bold mb-4">Sách chất lượng</h3>
+                    <a href="~/SanPhams/ProductList" class="btn btn-light py-2 px-3">Mua ngay</a>
+                </div>
+            </div>
+        </div>
+        <!-- Poster 1 end -->
+        <div class="carousel-item" style="height: 480px; ">
+            <img class="img-fluid" src="~/Content/img/2.jfif" alt="Image">
+            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                <div class="p-3" style="max-width: 700px;">
+                    <h4 class="text-light text-uppercase font-weight-medium mb-3">Giảm 10% cho đơn hàng đầu tiên</h4>
+                    <h3 class="display-4 text-white font-weight-semi-bold mb-4">Giá cả hợp lí</h3>
+                    <a href="~/SanPhams/ProductList" class="btn btn-light py-2 px-3">Mua ngay</a>
+                </div>
+            </div>
+        </div>
+        <!-- Poster 2 end -->
+    </div>
+    <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+        <div class="btn btn-dark" style="width: 45px; height: 45px;" id="prv">
+            <span class="carousel-control-prev-icon mb-n2"></span>
+        </div>
+    </a>
+    <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+        <div class="btn btn-dark" style="width: 45px; height: 45px;" id="nxt">
+            <span class="carousel-control-next-icon mb-n2"></span>
+        </div>
+    </a>
+</div>
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5 pb-3">
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">Chất lượng</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+                <h5 class="font-weight-semi-bold m-0">Miễn phí ship</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">Đổi trả sách</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">Hỗ trợ 24/7</h5>
+            </div>
+        </div>
+    </div>
+</div>
+    @Html.Action("TopBanChay", "DonHangCTs")
+
+
+
